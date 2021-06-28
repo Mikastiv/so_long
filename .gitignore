@@ -1,0 +1,6 @@
+*.o
+*.a
+so_long
+.vscode
+*.ber
+.DS_Store
