@@ -26,7 +26,7 @@ RM			= rm -rf
 
 $(NAME):	$(OBJS)
 			$(MAKELIBFT)
-			$(MAKELIBMLX)
+			$(MAKEMLX)
 			$(CC) $(CFLAGS) $(OBJS) -L$(FTDIR) -l$(LIBFT) -L$(MLXDIR) -l$(LIBMLX) -framework OpenGL -framework AppKit -o $(NAME)
 
 all:		$(NAME)
