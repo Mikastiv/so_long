@@ -6,14 +6,13 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 21:51:18 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/28 17:24:41 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/09 15:15:40 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "libft.h"
-#include "mlx.h"
-#include "mlx_utils.h"
+#include <mlx.h>
 #include <stdlib.h>
 
 static bool	init_buffers(t_game *game)
@@ -70,7 +69,6 @@ void	*free_game(t_game *game)
 		mlx_destroy_window(game->mlx, game->mlx_win);
 	if (game->map)
 		free_map(game->map);
-	destroy_mlx(game->mlx);
 	free(game);
 	return (NULL);
 }

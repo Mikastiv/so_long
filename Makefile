@@ -1,9 +1,6 @@
 NAME		= so_long
 
 LIBMLX		= mlx
-MLXDIR		= minilibx
-MAKEMLX		= $(MAKE) -C $(MLXDIR)
-
 LIBFT		= ft
 FTDIR		= libft
 MAKELIBFT	= $(MAKE) -C $(FTDIR)
@@ -22,18 +19,17 @@ CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 
 %.o:		%.c
-			$(CC) $(CFLAGS) -I$(FTDIR) -I$(MLXDIR) -I$(INCDIR) -c $< -o $@
+			$(CC) $(CFLAGS) -I$(FTDIR) -I$(INCDIR) -c $< -o $@
 
 $(NAME):	$(OBJS)
 			$(MAKELIBFT)
 			$(MAKEMLX)
-			$(CC) $(CFLAGS) $(OBJS) -L$(FTDIR) -l$(LIBFT) -L$(MLXDIR) -l$(LIBMLX) -framework OpenGL -framework AppKit -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) -L$(FTDIR) -l$(LIBFT) -l$(LIBMLX) -framework OpenGL -framework AppKit -o $(NAME)
 
 all:		$(NAME)
 
 clean:
 			$(MAKELIBFT) clean
-			$(MAKEMLX) clean
 			$(RM) $(OBJS)
 
 fclean:		clean
