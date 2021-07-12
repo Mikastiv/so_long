@@ -8,8 +8,8 @@ MAKELIBFT	= $(MAKE) -C $(FTDIR)
 INCDIR		= include
 SRCDIR		= src
 CFILES		= main.c map.c map_validation.c map_validation2.c map_validation3.c buffer.c\
-			game.c sprite.c render.c map2.c player.c mlx_utils.c
-HFILES		= map.h map_validation.h buffer.h game.h sprite.h render.h player.h mlx_utils.h
+			game.c sprite.c render.c map2.c player.c
+HFILES		= map.h map_validation.h buffer.h game.h sprite.h render.h player.h
 INCS		= $(addprefix $(INCDIR)/, $(HFILES))
 SRCS		= $(addprefix $(SRCDIR)/, $(CFILES))
 OBJS		= $(SRCS:.c=.o)
@@ -23,7 +23,6 @@ RM			= rm -rf
 
 $(NAME):	$(OBJS)
 			$(MAKELIBFT)
-			$(MAKEMLX)
 			$(CC) $(CFLAGS) $(OBJS) -L$(FTDIR) -l$(LIBFT) -l$(LIBMLX) -framework OpenGL -framework AppKit -o $(NAME)
 
 all:		$(NAME)
